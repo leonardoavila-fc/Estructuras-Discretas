@@ -1,0 +1,12 @@
+#Practica 1
+##¿Cuáles son las principales diferencias entre Haskell y Rust?
+"Practicamente, es la orientacion que tiene cada uno, mientras que Haskell es un programa enfocado en calculos y permitir la abstraccion matematica, mientras que rust esta enfocado al aprovechamiento de recursos y desarrollo de servicios "
+##¿Por qué Haskell no ha alcanzado una adopción significativa en la industria del software?
+"Porque no fue el objetivo con el que fue creado, ya que tiene una curva de aprendizaje muy empinada y conceptos muy abstractos que son mas dificiles de llevar a cabo"
+##Si tuvieras que explicarle a una persona que no es de CC la función que cumple Git frente a la de GitHub, ¿cómo se lo explicarías?##
+"Git es como la galeria de tu telefono, permite guadar informacion (fotos) y tenerlas tu a tu acceso, puedes hacer copias y asi, mientras que GitHub es una red social y es una forma de compartir tu codigo o fotos, seria como un instagram"
+##Fuentes:
+"De Miguel, R. (15 de septiembre de 2023). Descubrimos Rust, el lenguaje de programación abierto del que todos hablan. Educación 3.0. https://www.educaciontrespuntocero.com/tecnologia/rust-programacion/"
+"Equipo de Rust. (s. f.). Rust: El lenguaje que empodera a todos para construir software fiable y eficiente. https://rust-lang.org/es/"
+"Equipo editorial de IONOS. (9 de octubre de 2020). ¿Qué es Haskell? Todo sobre el lenguaje de programación. IONOS Digital Guide. https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/que-es-haskell/"
+""
