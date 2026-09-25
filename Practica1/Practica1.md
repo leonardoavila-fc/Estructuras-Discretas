@@ -9,3 +9,4 @@
 - De Miguel, R. (15 de septiembre de 2023). Descubrimos Rust, el lenguaje de programación abierto del que todos hablan. Educación 3.0. https://www.educaciontrespuntocero.com/tecnologia/rust-programacion/
 - Equipo de Rust. (s. f.). Rust: El lenguaje que empodera a todos para construir software fiable y eficiente. https://rust-lang.org/es/
 - Equipo editorial de IONOS. (9 de octubre de 2020). ¿Qué es Haskell? Todo sobre el lenguaje de programación. IONOS Digital Guide. https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/que-es-haskell/
+- GitHub. (s. f.). ¿Qué es GitHub? GitHub Docs. Recuperado el 24 de septiembre de 2026, de https://docs.github.com/es/get-started/start-your-journey/what-is-github
