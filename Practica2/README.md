@@ -6,4 +6,4 @@ Aprender a establecer funciones algo basicas en haskell
 Fue mas dificil plantearl el problema y entenderlo que desarrollar la ejecucion de la funcion esEstafa
 
 - Captura anexa:
-! [Captura] (Practica2/Captura.jpeg)
+! [Captura] (img/Captura.jpeg)
