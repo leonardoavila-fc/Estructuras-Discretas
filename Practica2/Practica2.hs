@@ -17,3 +17,9 @@ else False
 esDescendente :: Int -> Int -> Int -> Int -> Bool
 esDescendente x y z w = if x > y && y > z && z > w then True
 else False
+
+imc :: Float -> Float -> String
+imc peso altura =  if  ( peso / ((altura / 100) * (altura / 100))) < 18.5then "bajo"
+else if ( peso / ((altura / 100) * (altura / 100))) > 18.5 && ( peso / ((altura / 100) * (altura / 100))) < 24.9 then "normal"
+else if ( peso / ((altura / 100) * (altura / 100))) > 25.0 && ( peso / ((altura / 100) * (altura / 100))) < 29.9 then "sobrepeso"
+else "obesidad"
