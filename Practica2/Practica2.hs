@@ -19,8 +19,8 @@ cashback monto = monto / 10
    Uso: cashbackMonto 267 0.10 = 26.7
 -}
 
-cashbackMonto :: Float -> Float -> Float
-cashbackMonto puntos valorPuntos = puntos * valorPuntos
+cashback_monto :: Float -> Float -> Float
+cashback_monto puntos valorPuntos = puntos * valorPuntos
 
 {- Funcion: minutosHoras
    Descripcion: Recibe los minutos y te dice su equivalencia en horas y minutos
@@ -53,9 +53,9 @@ else False
 -}
 
 imc :: Float -> Float -> String
-imc peso altura =  if  ( peso / ((altura / 100) * (altura / 100))) < 18.5then "bajo"
-else if ( peso / ((altura / 100) * (altura / 100))) > 18.5 && ( peso / ((altura / 100) * (altura / 100))) < 24.9 then "normal"
-else if ( peso / ((altura / 100) * (altura / 100))) > 25.0 && ( peso / ((altura / 100) * (altura / 100))) < 29.9 then "sobrepeso"
+imc peso altura =  if  ( peso / ((altura / 100) * (altura / 100))) <= 18.5 then "bajo"
+else if ( peso / ((altura / 100) * (altura / 100))) > 18.5 && ( peso / ((altura / 100) * (altura / 100))) <= 24.9 then "normal"
+else if ( peso / ((altura / 100) * (altura / 100))) > 25.0 && ( peso / ((altura / 100) * (altura / 100))) <= 29.9 then "sobrepeso"
 else "obesidad"
 
 {- Funcion: hipotenusa
