@@ -31,17 +31,16 @@ minutosHoras :: Int -> String
 minutosHoras minutos = show (div minutos 60) ++  " horas y " ++ show (mod minutos 60)  ++ " minutos"
 
 {- Funcion: esEstafa
-   Descripcion:
-   Uso:
+   Descripcion: Detectar si hubo una estafa  a la hora de pagar en una tienda
+   Uso: esEstafa 100 200 100 0 = true
 -}
 
 esEstafa :: Int -> Int -> Int -> Int -> Bool
-esEstafa valor billeteTrampa billeteDeTroya pagoDelMercancia = if - valor + billeteTrampa - billeteDeTroya + pagoDelMercancia == 0 then True
-else False
+esEstafa x y z w = if y - x == z && z > w then True else False
 
 {- Funcion: esDescendente
-   Descripcion:
-   Uso:
+   Descripcion: Evaluar si una lista de 4 elementos es descendente
+   Uso: esDescendente 
 -}
 
 esDescendente :: Int -> Int -> Int -> Int -> Bool
@@ -49,8 +48,8 @@ esDescendente x y z w = if x > y && y > z && z > w then True
 else False
 
 {- Funcion: imc
-   Descripcion:
-   Uso:
+   Descripcion: Calcular el IMC de una persona con base en su peso y altura
+   Uso:imc imc 53.5 161 = normal
 -}
 
 imc :: Float -> Float -> String
@@ -60,24 +59,24 @@ else if ( peso / ((altura / 100) * (altura / 100))) > 25.0 && ( peso / ((altura 
 else "obesidad"
 
 {- Funcion: hipotenusa
-   Descripcion:
-   Uso:
+   Descripcion: calcular la hipotenusa de un triangulo rectangulo (No pasa nada si se ingresa alrevez, de todos modos es una funcion simetrica)
+   Uso: hipotenusa 9.0 12.0 = 15.0
 -}
 
 hipotenusa:: Float -> Float -> Float
 hipotenusa b h = sqrt ( (b * b) + (h * h) )
 
 {- Funcion: pendiente
-   Descripcion:
-   Uso:
+   Descripcion: dar el valor de la pendiente que pasa por 2 puntos
+   Uso: pendiente (3.0 , 2.0) (7.0 ,8.0) = 15.0
 -}
 
 pendiente :: (Float, Float) -> (Float, Float) -> Float
 pendiente (x1, y1) (x2, y2) = (y2 - y1) /(x2 - x1)
 
 {- Funcion: distanciaPuntos
-   Descripcion:
-   Uso:
+   Descripcion: Nos devuelve el valor de la dstancia de una pendiente de dos puntos
+   Uso: distanciaPuntos (2.0 , 1.0) (5.0 , 5.0) = 5.0
 -}
 
 distanciaPuntos :: (Float, Float) -> (Float, Float) -> Float

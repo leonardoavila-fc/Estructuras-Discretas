@@ -1,2 +1,0 @@
-reconversion :: Float -> Float
-reconversion dinero = dinero / 1000
