@@ -1,0 +1,61 @@
+-- |
+-- Práctica 03 - Estructuras Discretas
+-- Facultad de Ciencias, UNAM
+module Practica03 where
+
+import EsPar (esParBit)
+
+-- Plazo de la inversión: en días o en meses
+data Plazo = Dias Int | Meses Int deriving (Show, Eq)
+
+-- Convierte un plazo a días.
+-- 1 mes = 28 días, 6 meses = 182 días, 12 meses = 364 días.
+-- Para otro número de meses se usan 30 días por mes.
+diasDe :: Plazo -> Int
+diasDe (Dias n)   = n
+diasDe (Meses 1)  = 28
+diasDe (Meses 6)  = 182
+diasDe (Meses 12) = 364
+diasDe (Meses n)  = n * 30
+
+-- Tasa de interés bruta anual según los días del plazo
+tasa :: Int -> Double
+tasa d 
+    | d <= 28   = 0.0609
+    | d <= 182  = 0.0691
+    | otherwise = 0.0744
+
+-- Monto final al concluir el plazo p con monto inicial vi.
+cetes :: Double -> Plazo -> Double
+cetes vi p = vi * (1 + tasa t * fromIntegral t / 360)
+  where t = diasDe p
+
+-- Mensaje con el plazo, el rendimiento bruto y el monto total.
+mensajeCetes :: Double -> Plazo -> String
+mensajeCetes vi p =
+  "Despues de " ++ show t ++ " dias, obtuve " ++ show (vf - vi)
+  ++ " de rendimiento bruto sin asumir ningun riesgo crediticio. "
+  ++ "El monto total de mi inversion es de " ++ show vf ++ "."
+  where t  = diasDe p
+        vf = cetes vi p
+
+-- Cuenta los números negativos de la lista.
+negativos :: [Int] -> Int
+negativos xs = length [x | x <- xs, x < 0]
+
+-- Devuelve únicamente los números pares.
+soloPares :: [Int] -> [Int]
+soloPares xs = [x | x <- xs, esParBit x]
+
+-- True si n > 1 y no tiene divisores entre 2 y n-1.
+esPrimo :: Int -> Bool
+esPrimo n = n > 1 && length [d | d <- [2..n-1], n `mod` d == 0] == 0
+
+-- Devuelve los números primos de la lista.
+primos :: [Int] -> [Int]
+primos xs = [x | x <- xs, esPrimo x]
+
+-- Devuelve los x en [1..n] coprimos con n (mcd(x, n) = 1).
+coprimos :: Int -> [Int]
+coprimos n = [x | x <- [1..n], 
+              length [d | d <- [2..x], n `mod` d == 0, x `mod` d == 0] == 0]

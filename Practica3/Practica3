@@ -1,0 +1,85 @@
+module Practica03 where
+
+import EsPar (esParBit)
+
+{- Tipo: Plazo
+   Descripcion: Plazo de la inversión: en días o en meses
+   Uso: Dias 30 / Meses 6
+-}
+data Plazo = Dias Int | Meses Int deriving (Show, Eq)
+
+{- Funcion: diasDe
+   Descripcion: convierte un plazo a días (1 mes = 28 días, 6 meses = 182 días, 12 meses = 364 días, otros = 30 días por mes)
+   Uso: diasDe (Meses 1) = 28
+-}
+diasDe :: Plazo -> Int
+diasDe (Dias n)   = n
+diasDe (Meses 1)  = 28
+diasDe (Meses 6)  = 182
+diasDe (Meses 12) = 364
+diasDe (Meses n)  = n * 30
+
+{- Funcion: tasa
+   Descripcion: tasa de interés bruta anual según los días del plazo
+   Uso: tasa 30 = 0.0691
+-}
+tasa :: Int -> Double
+tasa d = if d <= 28 then 0.0609
+         else if d <= 182 then 0.0691
+         else 0.0744
+
+{- Funcion: cetes
+   Descripcion: monto final al concluir el plazo p con monto inicial vi
+   Uso: cetes 10000.0 (Dias 28) = 10047.35
+-}
+cetes :: Double -> Plazo -> Double
+cetes vi p = vi * (1 + tasa t * fromIntegral t / 360)
+  where t = diasDe p
+
+{- Funcion: mensajeCetes
+   Descripcion: mensaje con el plazo, el rendimiento bruto y el monto total acumulado de la inversión
+   Uso: mensajeCetes 10000.0 (Dias 28) = "Despues de..."
+-}
+mensajeCetes :: Double -> Plazo -> String
+mensajeCetes vi p =
+  "Despues de " ++ show t ++ " dias, obtuve " ++ show (vf - vi)
+  ++ " de rendimiento bruto sin asumir ningun riesgo crediticio. "
+  ++ "El monto total de mi inversion es de " ++ show vf ++ "."
+  where t  = diasDe p
+        vf = cetes vi p
+
+{- Funcion: negativos
+   Descripcion: cuenta los números negativos de la lista xs
+   Uso: negativos [1, -2, 3, -4] = 2
+-}
+negativos :: [Int] -> Int
+negativos xs = length [x | x <- xs, x < 0]
+
+{- Funcion: soloPares
+   Descripcion: devuelve únicamente los números pares de xs
+   Uso: soloPares [1, 2, 3, 4] = [2, 4]
+-}
+soloPares :: [Int] -> [Int]
+soloPares xs = [x | x <- xs, esParBit x]
+
+{- Funcion: esPrimo
+   Descripcion: True si n > 1 y no tiene divisores entre 2 y n-1
+   Uso: esPrimo 7 = True
+-}
+esPrimo :: Int -> Bool
+esPrimo n = if n > 1 && length [d | d <- [2..n-1], n `mod` d == 0] == 0 then True else False
+
+{- Funcion: primos
+   Descripcion: devuelve los números primos de la lista xs
+   Uso: primos [1, 2, 3, 4, 5] = [2, 3, 5]
+-}
+primos :: [Int] -> [Int]
+primos xs = [x | x <- xs, esPrimo x]
+
+{- Funcion: coprimos
+   Descripcion: devuelve los x en [1..n] que no comparten con n ningún divisor mayor a 1
+   Uso: coprimos 6 = [1, 5]
+-}
+coprimos :: Int -> [Int]
+coprimos n = [x | x <- [1..n],
+              length [d | d <- [2..x], n `mod` d == 0, x `mod` d == 0] == 0]

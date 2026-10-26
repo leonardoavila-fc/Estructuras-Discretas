@@ -1,0 +1,8 @@
+module EsPar (esParBit) where
+
+{- Funcion: esParBit
+   Descripcion: devuelve True si n es par y False si es impar
+   Uso: esParBit 4 = True
+-}
+esParBit :: Int -> Bool
+esParBit n = if n `mod` 2 == 0 then True else False
